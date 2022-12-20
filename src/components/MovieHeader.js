@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const MovieHeader = (props) => {
-    const displayFavorites = true;
+    const { displayFavorites } = props;
     const { appTitle } = props;
     
     return(<div className="table-title">
@@ -22,7 +22,8 @@ const MovieHeader = (props) => {
 
 const mapStateToProps = state => {
     return {
-        appTitle: state.appTitle
+        appTitle: state.movieReducer.appTitle,
+        displayFavorites: state.favoritesReducer.displayFavorites
     }
 }
 
